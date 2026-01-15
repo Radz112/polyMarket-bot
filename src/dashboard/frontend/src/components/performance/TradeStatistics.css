@@ -1,0 +1,91 @@
+/* Trade Statistics styles */
+
+.trade-statistics {
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid var(--border);
+}
+
+.trade-statistics h3 {
+    margin: 0 0 16px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stat-row .label {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.stat-row .value {
+    font-family: 'SF Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.stat-row .value.positive {
+    color: var(--green);
+}
+
+.stat-row .value.negative {
+    color: var(--red);
+}
+
+.stat-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 4px 0;
+}
+
+.streaks {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.streak-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.streak-label {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.streak-value {
+    font-family: 'SF Mono', monospace;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.streak-value.positive {
+    color: var(--green);
+}
+
+.streak-value.negative {
+    color: var(--red);
+}

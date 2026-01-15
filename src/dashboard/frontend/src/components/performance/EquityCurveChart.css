@@ -1,0 +1,54 @@
+/* Equity Curve Chart styles */
+
+.equity-curve-chart {
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid var(--border);
+}
+
+.equity-curve-chart svg {
+    width: 100%;
+    height: auto;
+}
+
+.data-point {
+    transition: opacity 0.2s;
+}
+
+.equity-curve-chart svg:hover .data-point {
+    opacity: 1;
+}
+
+.chart-legend {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+}
+
+.chart-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    color: var(--text-muted);
+}

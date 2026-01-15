@@ -1,0 +1,20 @@
+[Unit]
+Description=Polymarket Trading Bot
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_USERNAME
+WorkingDirectory=/home/YOUR_USERNAME/PolyMarket-bot
+Environment="PYTHONPATH=/home/YOUR_USERNAME/PolyMarket-bot"
+Environment="PATH=/home/YOUR_USERNAME/PolyMarket-bot/.venv/bin"
+ExecStart=/home/YOUR_USERNAME/PolyMarket-bot/.venv/bin/python -m src.main
+Restart=always
+RestartSec=10
+
+# Logging
+StandardOutput=append:/var/log/polymarket-bot/bot.log
+StandardError=append:/var/log/polymarket-bot/error.log
+
+[Install]
+WantedBy=multi-user.target

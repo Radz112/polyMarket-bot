@@ -1,0 +1,226 @@
+/* Signal Card styles */
+
+.signal-card {
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    padding: 16px;
+    border-left: 4px solid var(--accent);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.signal-card:hover {
+    background: var(--bg-tertiary);
+    transform: translateX(4px);
+}
+
+.signal-card.urgency-critical {
+    animation: pulse-border 1.5s infinite;
+}
+
+@keyframes pulse-border {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 8px rgba(239, 68, 68, 0);
+    }
+}
+
+/* Header */
+.signal-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.signal-type {
+    background: var(--bg-tertiary);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.signal-time {
+    margin-left: auto;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* Markets */
+.signal-markets {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.signal-market {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    background: var(--bg-primary);
+    border-radius: 6px;
+}
+
+.signal-market .market-name {
+    font-size: 13px;
+    color: var(--text-primary);
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 12px;
+}
+
+.signal-market .market-price {
+    font-family: 'SF Mono', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--green);
+}
+
+/* Divergence */
+.signal-divergence {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-top: 1px solid var(--border);
+}
+
+.divergence-label {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.divergence-value {
+    font-family: 'SF Mono', monospace;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--green);
+}
+
+/* Recommendation */
+.signal-recommendation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.signal-recommendation .action {
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.signal-recommendation .action.buy {
+    background: rgba(34, 197, 94, 0.15);
+    color: var(--green);
+}
+
+.signal-recommendation .action.sell {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--red);
+}
+
+.signal-recommendation .size {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-family: 'SF Mono', monospace;
+}
+
+/* Expiry */
+.signal-expiry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: var(--bg-primary);
+    border-radius: 6px;
+}
+
+.expiry-label {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.countdown {
+    font-family: 'SF Mono', monospace;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.countdown.urgent {
+    color: var(--yellow);
+}
+
+.countdown.critical {
+    color: var(--red);
+    animation: blink 1s infinite;
+}
+
+.countdown.expired {
+    color: var(--text-muted);
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Actions */
+.signal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.signal-actions button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.trade-button {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+}
+
+.trade-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.35);
+}
+
+.dismiss-button {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+}
+
+.dismiss-button:hover {
+    background: var(--red);
+    color: white;
+}

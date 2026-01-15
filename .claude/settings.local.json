@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(source .venv/bin/activate)",
+      "Bash(pip install -r requirements.txt)",
+      "Bash(brew --version:*)",
+      "Bash(docker:*)",
+      "Bash(ls:*)",
+      "Bash(python3:*)",
+      "Bash(node --version)",
+      "Bash(pip install:*)",
+      "Bash(lsof:*)",
+      "Bash(curl:*)",
+      "Bash(chmod:*)"
+    ]
+  }
+}

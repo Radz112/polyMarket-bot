@@ -1,0 +1,103 @@
+/* Correlation Table styles */
+
+.correlation-table-wrapper {
+    overflow-x: auto;
+    border-radius: 8px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+}
+
+.correlation-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.correlation-table thead {
+    background: var(--bg-tertiary);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.correlation-table th {
+    padding: 14px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.15s;
+    white-space: nowrap;
+}
+
+.correlation-table th:hover {
+    color: var(--text-primary);
+}
+
+.correlation-table th.sorted {
+    color: var(--accent);
+}
+
+.sort-indicator {
+    margin-left: 4px;
+    font-size: 10px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .correlation-table-wrapper {
+        font-size: 13px;
+    }
+
+    .correlation-table th,
+    .correlation-table td {
+        padding: 12px 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .correlation-table {
+        display: block;
+    }
+
+    .correlation-table thead {
+        display: none;
+    }
+
+    .correlation-table tbody {
+        display: block;
+    }
+
+    .correlation-table tr {
+        display: block;
+        padding: 16px;
+        margin-bottom: 8px;
+        background: var(--bg-secondary);
+        border-radius: 8px;
+        border: 1px solid var(--border);
+    }
+
+    .correlation-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .correlation-table td:last-child {
+        border-bottom: none;
+    }
+
+    .correlation-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--text-muted);
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+}

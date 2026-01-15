@@ -1,0 +1,170 @@
+/* Shared component styles */
+
+.market-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.market-name {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.market-prices {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.market-prices .price {
+  font-family: 'SF Mono', monospace;
+}
+
+.market-prices .yes {
+  color: var(--green);
+}
+
+.market-prices .no {
+  color: var(--red);
+}
+
+/* Price Badge */
+.price-badge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: 'SF Mono', monospace;
+  font-weight: 500;
+}
+
+.price-badge.yes {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--green);
+}
+
+.price-badge.no {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--red);
+}
+
+.price-badge.neutral {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+/* Score Badge */
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'SF Mono', monospace;
+}
+
+.score-badge.high {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+}
+
+.score-badge.medium {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+}
+
+.score-badge.low {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+/* Correlation Type Badge */
+.correlation-type-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.correlation-type-badge.large {
+  padding: 6px 14px;
+  font-size: 13px;
+}
+
+/* Divergence Display */
+.divergence-display {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.divergence-value {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'SF Mono', monospace;
+}
+
+.divergence-value.positive {
+  color: var(--green);
+}
+
+.divergence-value.negative {
+  color: var(--red);
+}
+
+.divergence-display.significant .divergence-value {
+  animation: pulse 2s infinite;
+}
+
+.divergence-detail {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: 'SF Mono', monospace;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--bg-tertiary);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+  font-size: 15px;
+}

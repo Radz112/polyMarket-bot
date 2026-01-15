@@ -1,0 +1,56 @@
+/* Metric Card styles */
+
+.metric-card {
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+}
+
+.metric-card:hover {
+    border-color: var(--accent);
+}
+
+.metric-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.metric-value {
+    font-family: 'SF Mono', monospace;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.trend-icon {
+    font-size: 18px;
+}
+
+.metric-card.trend-up .metric-value {
+    color: var(--green);
+}
+
+.metric-card.trend-down .metric-value {
+    color: var(--red);
+}
+
+.metric-sub {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+    font-family: 'SF Mono', monospace;
+}
+
+.metric-benchmark {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 8px;
+}

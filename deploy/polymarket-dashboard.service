@@ -1,0 +1,20 @@
+[Unit]
+Description=Polymarket Dashboard API
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_USERNAME
+WorkingDirectory=/home/YOUR_USERNAME/PolyMarket-bot
+Environment="PYTHONPATH=/home/YOUR_USERNAME/PolyMarket-bot"
+Environment="PATH=/home/YOUR_USERNAME/PolyMarket-bot/.venv/bin"
+ExecStart=/home/YOUR_USERNAME/PolyMarket-bot/.venv/bin/python -m uvicorn src.dashboard.api.main:app --host 0.0.0.0 --port 8000
+Restart=always
+RestartSec=10
+
+# Logging
+StandardOutput=append:/var/log/polymarket-bot/dashboard.log
+StandardError=append:/var/log/polymarket-bot/dashboard-error.log
+
+[Install]
+WantedBy=multi-user.target

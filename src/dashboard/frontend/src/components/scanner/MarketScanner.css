@@ -1,0 +1,111 @@
+/* Market Scanner styles */
+
+.market-scanner {
+    padding: 24px;
+    min-height: 100vh;
+}
+
+.scanner-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.scanner-header h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--text-primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.correlation-count {
+    padding: 6px 12px;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.connection-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.connection-status.connected .status-dot {
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+}
+
+.connection-status.connected {
+    color: var(--green);
+}
+
+.connection-status.disconnected .status-dot {
+    background: var(--red);
+}
+
+.connection-status.disconnected {
+    color: var(--red);
+}
+
+.refresh-btn {
+    padding: 8px 16px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.refresh-btn:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .market-scanner {
+        padding: 16px;
+    }
+
+    .scanner-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .scanner-header h1 {
+        font-size: 22px;
+    }
+}

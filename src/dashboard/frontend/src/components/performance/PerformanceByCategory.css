@@ -1,0 +1,115 @@
+/* Performance by Category styles */
+
+.performance-by-category {
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid var(--border);
+}
+
+.performance-by-category h3 {
+    margin: 0 0 16px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Bar Chart */
+.category-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.category-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.category-name {
+    width: 100px;
+    font-size: 13px;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+
+.bar-container {
+    flex: 1;
+    height: 20px;
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s;
+}
+
+.bar.positive {
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.bar.negative {
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+.pnl-value {
+    width: 70px;
+    text-align: right;
+    font-family: 'SF Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.pnl-value.positive {
+    color: var(--green);
+}
+
+.pnl-value.negative {
+    color: var(--red);
+}
+
+/* Table */
+.category-table-container {
+    overflow-x: auto;
+}
+
+.category-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.category-table th,
+.category-table td {
+    padding: 10px 12px;
+    text-align: left;
+}
+
+.category-table th {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+}
+
+.category-table td {
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+}
+
+.category-table td.positive {
+    color: var(--green);
+    font-family: 'SF Mono', monospace;
+}
+
+.category-table td.negative {
+    color: var(--red);
+    font-family: 'SF Mono', monospace;
+}

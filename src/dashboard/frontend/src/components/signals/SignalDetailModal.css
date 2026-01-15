@@ -1,0 +1,325 @@
+/* Signal Detail Modal styles */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.signal-detail-modal {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.close-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background: var(--red);
+    color: white;
+}
+
+/* Sections */
+.signal-detail-modal section {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+}
+
+.signal-detail-modal section:last-child {
+    border-bottom: none;
+}
+
+.signal-detail-modal h3 {
+    margin: 0 0 16px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Score Breakdown */
+.score-total {
+    margin-bottom: 16px;
+}
+
+.score-components {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.score-component {
+    background: var(--bg-secondary);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.component-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.component-name {
+    font-size: 13px;
+    color: var(--text-primary);
+}
+
+.component-score {
+    font-family: 'SF Mono', monospace;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.component-bar {
+    height: 4px;
+    background: var(--bg-tertiary);
+    border-radius: 2px;
+    margin-bottom: 8px;
+}
+
+.component-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--green));
+    border-radius: 2px;
+    transition: width 0.3s;
+}
+
+.component-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+/* Markets Section */
+.market-detail-card {
+    background: var(--bg-secondary);
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.market-detail-card:last-child {
+    margin-bottom: 0;
+}
+
+.market-question {
+    font-size: 14px;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.market-prices {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 8px;
+}
+
+.market-prices .price {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.market-prices .label {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.market-prices .value {
+    font-family: 'SF Mono', monospace;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.market-prices .value.yes {
+    color: var(--green);
+}
+
+.market-prices .value.no {
+    color: var(--red);
+}
+
+.market-volume {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* Explanation */
+.explanation-section p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+}
+
+.expected-vs-actual {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.expected-vs-actual .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+}
+
+.expected-vs-actual .row .label {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.expected-vs-actual .row .value {
+    font-family: 'SF Mono', monospace;
+    font-size: 14px;
+}
+
+.expected-vs-actual .row.highlight {
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+    padding-top: 12px;
+}
+
+.expected-vs-actual .row.highlight .value {
+    color: var(--green);
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* Trade Form */
+.trade-action {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.trade-action.buy {
+    background: rgba(34, 197, 94, 0.15);
+    color: var(--green);
+}
+
+.trade-action.sell {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--red);
+}
+
+.size-input {
+    margin-bottom: 16px;
+}
+
+.size-input label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.size-input input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 16px;
+    font-family: 'SF Mono', monospace;
+}
+
+.size-input input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.max-size {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 6px;
+}
+
+.trade-preview {
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 16px;
+}
+
+.preview-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 13px;
+}
+
+.preview-row span:first-child {
+    color: var(--text-muted);
+}
+
+.preview-row span:last-child {
+    font-family: 'SF Mono', monospace;
+}
+
+.preview-row.profit span:last-child {
+    color: var(--green);
+    font-weight: 600;
+}
+
+.execute-button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.execute-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(34, 197, 94, 0.35);
+}
