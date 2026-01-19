@@ -81,6 +81,14 @@ if [ ! -f .env ]; then
     echo ""
 fi
 
+
+# Enforce correct DB credentials to match Docker (fixes mismatch from old configs)
+if [ -f .env ]; then
+    echo "🔧 Fixing potential DB credential mismatches in .env..."
+    sed -i 's/^POSTGRES_USER=.*/POSTGRES_USER=postgres/' .env
+    sed -i 's/^POSTGRES_PASSWORD=.*/POSTGRES_PASSWORD=postgres/' .env
+fi
+
 # Database Initialization
 echo "🗄️  Initializing Database..."
 export PYTHONPATH=$PWD
