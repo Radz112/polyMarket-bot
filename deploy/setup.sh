@@ -40,6 +40,21 @@ fi
 
 # Start Docker Services
 echo "🔄 Starting Database & Cache..."
+
+# Stop local postgres/redis if they are running to prevent port conflicts
+if systemctl is-active --quiet postgresql; then
+    echo "🛑 Stopping local PostgreSQL to avoid port conflicts..."
+    sudo systemctl stop postgresql
+    sudo systemctl disable postgresql
+fi
+
+if systemctl is-active --quiet redis-server; then
+     echo "🛑 Stopping local Redis to avoid port conflicts..."
+     sudo systemctl stop redis-server
+     sudo systemctl disable redis-server
+fi
+
+sudo docker compose down  # cleanup potential failed containers
 sudo docker compose up -d
 
 # Create virtual environment
