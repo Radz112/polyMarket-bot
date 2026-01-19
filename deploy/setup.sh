@@ -83,6 +83,7 @@ fi
 
 # Database Initialization
 echo "🗄️  Initializing Database..."
+export PYTHONPATH=$PWD
 python scripts/init_db.py
 echo "🌱 Seeding Database with active markets..."
 python scripts/seed_db.py
