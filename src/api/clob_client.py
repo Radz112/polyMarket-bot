@@ -63,6 +63,17 @@ class ClobClient:
             logger.error(f"Network error during {method} {url}: {e}")
             raise PolymarketError(f"Network error: {e}")
 
+    async def get_markets(self, limit: Optional[int] = None, next_cursor: str = "") -> Any:
+        """Fetches a list of markets."""
+        params = {}
+        if limit: params["limit"] = limit
+        if next_cursor: params["next_cursor"] = next_cursor
+        res = await self._request("GET", "/markets", params=params)
+        # Handle pagination or list return
+        if isinstance(res, dict) and 'data' in res:
+             return res['data'] # generic adaptation
+        return res
+
     async def get_market(self, condition_id: str) -> Dict[str, Any]:
         """Fetches market details by condition ID."""
         return await self._request("GET", f"/markets/{condition_id}")

@@ -32,7 +32,28 @@ class MarketFetcher:
         markets = await self.api.get_markets(limit=None if not active_only else 500) # Fetch chunk
         
         processed_markets = []
-        for m in markets:
+        for m_data in markets:
+            if not isinstance(m_data, dict):
+                continue
+                
+            try:
+                # Map API fields to Market model
+                # Note: Adjust field mapping based on actual API response structure
+                m = Market(
+                    condition_id=m_data.get("condition_id", ""),
+                    slug=m_data.get("slug") or "",
+                    question=m_data.get("question") or "",
+                    description=m_data.get("description"),
+                    end_date=m_data.get("end_date_iso"), 
+                    active=m_data.get("active", True),
+                    closed=m_data.get("closed", False),
+                    resolved=m_data.get("resolved", False),
+                    clob_token_ids=[t.get("token_id") for t in m_data.get("tokens", []) if isinstance(t, dict)]
+                )
+            except Exception as e:
+                logger.debug(f"Skipping invalid market data: {e}")
+                continue
+
             # Categorize
             cat, subcat, entities = self.categorizer.categorize(m)
             m.category = cat

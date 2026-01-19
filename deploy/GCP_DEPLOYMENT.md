@@ -61,6 +61,7 @@ git clone https://github.com/YOUR_USERNAME/PolyMarket-bot.git
 cd PolyMarket-bot
 
 # Run the setup script
+# This will install Docker, Python, and seed the database
 chmod +x deploy/setup.sh
 ./deploy/setup.sh
 ```
@@ -123,7 +124,7 @@ sudo systemctl status polymarket-bot
 # Check dashboard status
 sudo systemctl status polymarket-dashboard
 
-# View logs
+# View logs (since they are redirected to a file)
 tail -f /var/log/polymarket-bot/bot.log
 ```
 
@@ -177,7 +178,16 @@ journalctl -u polymarket-bot -f
 ### Bot won't start
 ```bash
 # Check logs for errors
-sudo journalctl -u polymarket-bot -n 50
+tail -f /var/log/polymarket-bot/bot.log
+# Or check service status
+sudo systemctl status polymarket-bot
+```
+
+### Database empty / Bot silent
+If logs show the bot starting but doing nothing:
+```bash
+# Verify database has data
+python scripts/seed_db.py
 ```
 
 ### Missing dependencies
