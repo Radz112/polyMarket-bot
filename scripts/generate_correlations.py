@@ -1,6 +1,7 @@
 import asyncio
 import logging
 import time
+from src.models.correlation import MarketCorrelation, CorrelationType
 from src.database.postgres import DatabaseManager
 from src.correlation.store import CorrelationStore
 from src.correlation.similarity.detector import StringSimilarityDetector
@@ -41,7 +42,26 @@ async def main():
         if results:
             store = CorrelationStore(db)
             logger.info(f"Saving {len(results)} correlations to database...")
-            await store.save_correlations_batch(results)
+            
+            correlations_to_save = []
+            for res in results:
+                try:
+                    corr = MarketCorrelation(
+                        market_a_id=res.market_a_id,
+                        market_b_id=res.market_b_id,
+                        correlation_type=CorrelationType.EQUIVALENT,
+                        expected_relationship="SIMILAR",
+                        confidence=res.overall_score,
+                        metadata={
+                            "detection_method": "string_similarity",
+                            "breakdown": res.breakdown
+                        }
+                    )
+                    correlations_to_save.append(corr)
+                except Exception as e:
+                    logger.warning(f"Skipping invalid correlation: {e}")
+
+            await store.save_correlations_batch(correlations_to_save)
             logger.info("✅ Correlations saved successfully.")
         else:
             logger.info("No substantial correlations found.")
