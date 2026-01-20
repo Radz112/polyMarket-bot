@@ -95,6 +95,8 @@ export PYTHONPATH=$PWD
 python scripts/init_db.py
 echo "🌱 Seeding Database with active markets..."
 python scripts/seed_db.py
+echo "🔗 Generating Correlations..."
+python scripts/generate_correlations.py
 
 echo "✅ Setup complete!"
 echo ""

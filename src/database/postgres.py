@@ -166,10 +166,10 @@ class DatabaseManager:
                     outcome=m.outcome
                 ) for m in models
             ]
+    async def get_active_markets(self) -> List[Market]:
         async with self._session_factory() as session:
             result = await session.execute(select(MarketModel).where(MarketModel.active == True))
             models = result.scalars().all()
-            # Reuse conversion logic (simplified duplicate here)
             return [
                  Market(
                     condition_id=m.id,
@@ -177,6 +177,8 @@ class DatabaseManager:
                     question=m.question,
                     description=m.description,
                     category=m.category,
+                    subcategory=m.subcategory,
+                    entities=m.entities or {},
                     end_date=m.end_date,
                     active=m.active,
                     closed=not m.active,
