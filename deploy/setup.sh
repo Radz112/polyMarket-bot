@@ -98,11 +98,16 @@ python scripts/seed_db.py
 echo "🔗 Generating Correlations..."
 python scripts/generate_correlations.py
 
+echo "⚙️  Configuring Systemd Service..."
+# Replace placeholders in service file
+sed -i "s|YOUR_USERNAME|$USER|g" deploy/polymarket-bot.service
+sed -i "s|/home/$USER/PolyMarket-bot|$PWD|g" deploy/polymarket-bot.service
+
 echo "✅ Setup complete!"
 echo ""
 echo "Next steps:"
-echo "1. Edit your .env file: nano .env"
-echo "2. Install the systemd service: sudo cp deploy/polymarket-bot.service /etc/systemd/system/"
+echo "1. Edit your .env file (if you haven't yet): nano .env"
+echo "2. Update the systemd service: sudo cp deploy/polymarket-bot.service /etc/systemd/system/ && sudo systemctl daemon-reload"
 echo "3. Start the bot: sudo systemctl enable polymarket-bot && sudo systemctl start polymarket-bot"
 echo "4. Check logs: tail -f /var/log/polymarket-bot/bot.log"
 echo ""
